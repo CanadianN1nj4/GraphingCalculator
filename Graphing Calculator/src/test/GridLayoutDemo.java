@@ -29,7 +29,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package test;
+package src.test;
 
 /*
  * GridLayoutDemo.java
@@ -38,15 +38,27 @@ package test;
 
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.*;
 
-public class GridLayoutDemo extends JFrame {
+public class GridLayoutDemo extends JFrame implements ActionListener{
 	static final String gapList[] = { "0", "10", "15", "20" };
 	final static int maxGap = 20;
 	JComboBox horGapComboBox;
 	JComboBox verGapComboBox;
 	JButton applyButton = new JButton("Apply gaps");
-	GridLayout experimentLayout = new GridLayout(0, 2);
+	GridLayout experimentLayout = new GridLayout(0, 3);
+	
+	public JButton button0 = new JButton("0");
+	public JButton button1 = new JButton("1");
+	public JButton button2 = new JButton("2");
+	public JButton button3 = new JButton("3");
+	public JButton button4 = new JButton("4");
+	public JButton button5 = new JButton("5");
+	public JButton button6 = new JButton("6");
+	public JButton button7 = new JButton("7");
+	public JButton button8 = new JButton("8");
+	public JButton button9 = new JButton("9");
 
 	public GridLayoutDemo(String name) {
 		super(name);
@@ -60,7 +72,29 @@ public class GridLayoutDemo extends JFrame {
 
 	public void addComponentsToPane(final Container pane) {
 
-		JButton button1 = button1 = new JButton("Button 1");
+
+		
+		button0.addActionListener(this);
+		button0.setActionCommand("button0");
+		button1.addActionListener(this);
+		button1.setActionCommand("button1");
+		button2.addActionListener(this);
+		button2.setActionCommand("button2");
+		button3.addActionListener(this);
+		button3.setActionCommand("button3");
+		button4.addActionListener(this);
+		button4.setActionCommand("button4");
+		button5.addActionListener(this);
+		button5.setActionCommand("button5");
+		button6.addActionListener(this);
+		button6.setActionCommand("button6");
+		button7.addActionListener(this);
+		button7.setActionCommand("button7");
+		button8.addActionListener(this);
+		button8.setActionCommand("button8");
+		button9.addActionListener(this);
+		button9.setActionCommand("button9");
+		
 
 		Color orange = Color.decode("#FF9800");
 
@@ -80,11 +114,16 @@ public class GridLayoutDemo extends JFrame {
 				+ maxGap, (int) (buttonSize.getHeight() * 3.5) + maxGap * 2));
 
 		// Add buttons to experiment with Grid Layout
+		compsToExperiment.add(button7);
+		compsToExperiment.add(button8);
+		compsToExperiment.add(button9);
+		compsToExperiment.add(button4);
+		compsToExperiment.add(button5);
+		compsToExperiment.add(button6);
 		compsToExperiment.add(button1);
-		compsToExperiment.add(new JButton("Button 2"));
-		compsToExperiment.add(new JButton("Button 3"));
-		compsToExperiment.add(new JButton("Long-Named Button 4"));
-		compsToExperiment.add(new JButton("5"));
+		compsToExperiment.add(button2);
+		compsToExperiment.add(button3);
+		compsToExperiment.add(button0);
 
 		// Add controls to set up horizontal and vertical gaps
 		controls.add(new Label("Horizontal gap:"));
@@ -153,5 +192,12 @@ public class GridLayoutDemo extends JFrame {
 				createAndShowGUI();
 			}
 		});
+	}
+	public void actionPerformed(ActionEvent event) {
+
+		// See if it's our first button that cause the event
+		if (event.getActionCommand().equals("button1")) {
+			button1.setText("KRONK!");
+		}
 	}
 }
