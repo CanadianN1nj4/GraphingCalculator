@@ -1,4 +1,4 @@
-package src.test;
+package src;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;

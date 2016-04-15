@@ -1,4 +1,4 @@
-package test;
+package src;
 
 public class ScientificCalc {
 

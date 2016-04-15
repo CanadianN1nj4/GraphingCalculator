@@ -1,4 +1,4 @@
-package src.test;
+package src;
 
 public class GUIMain {
 
