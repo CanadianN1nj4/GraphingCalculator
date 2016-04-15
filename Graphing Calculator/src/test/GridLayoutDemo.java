@@ -38,15 +38,16 @@ package test;
 
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.*;
 
-public class GridLayoutDemo extends JFrame {
+public class GridLayoutDemo extends JFrame implements ActionListener {
 	static final String gapList[] = { "0", "10", "15", "20" };
 	final static int maxGap = 20;
 	JComboBox horGapComboBox;
 	JComboBox verGapComboBox;
 	JButton applyButton = new JButton("Apply gaps");
-	GridLayout experimentLayout = new GridLayout(0, 2);
+	GridLayout experimentLayout = new GridLayout(1, 2);
 
 	public GridLayoutDemo(String name) {
 		super(name);
@@ -63,14 +64,30 @@ public class GridLayoutDemo extends JFrame {
 		Color orange = Color.decode("#FF9800");
 
 		// Buttons
-		JButton button1 = button1 = new JButton("Button 1");
+		JButton button1 = new JButton("Button 1");
+		JButton button2 = new JButton("Button 2");
+		JButton button3 = new JButton("Button 3");
+		JButton button4 = new JButton("Button 4");
+		JButton button5 = new JButton("Button 5");
 
 		// Button settings
 		button1.setBackground(orange);
-
-		//Sends it to initGaps 
-		initGaps();
 		
+		//
+		button1.addActionListener(this);
+		button1.setActionCommand("button1");
+		button2.addActionListener(this);
+		button2.setActionCommand("button2");
+		button3.addActionListener(this);
+		button3.setActionCommand("button3");
+		button4.addActionListener(this);
+		button4.setActionCommand("button4");
+		button5.addActionListener(this);
+		button5.setActionCommand("button5");
+
+		// Sends it to initGaps
+		initGaps();
+
 		//
 		final JPanel compsToExperiment = new JPanel();
 		compsToExperiment.setLayout(experimentLayout);
@@ -86,10 +103,10 @@ public class GridLayoutDemo extends JFrame {
 
 		// Add buttons to experiment with Grid Layout
 		compsToExperiment.add(button1);
-		compsToExperiment.add(new JButton("Button 2"));
-		compsToExperiment.add(new JButton("Button 3"));
-		compsToExperiment.add(new JButton("Long-Named Button 4"));
-		compsToExperiment.add(new JButton("5"));
+		compsToExperiment.add(button2);
+		compsToExperiment.add(button3);
+		compsToExperiment.add(button4);
+		compsToExperiment.add(button5);
 
 		// Add controls to set up horizontal and vertical gaps
 		controls.add(new Label("Horizontal gap:"));
@@ -158,5 +175,11 @@ public class GridLayoutDemo extends JFrame {
 				createAndShowGUI();
 			}
 		});
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }
