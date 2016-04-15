@@ -59,14 +59,19 @@ public class GridLayoutDemo extends JFrame {
 	}
 
 	public void addComponentsToPane(final Container pane) {
-
-		JButton button1 = button1 = new JButton("Button 1");
-
+		// Colors
 		Color orange = Color.decode("#FF9800");
 
+		// Buttons
+		JButton button1 = button1 = new JButton("Button 1");
+
+		// Button settings
 		button1.setBackground(orange);
 
+		//Sends it to initGaps 
 		initGaps();
+		
+		//
 		final JPanel compsToExperiment = new JPanel();
 		compsToExperiment.setLayout(experimentLayout);
 		JPanel controls = new JPanel();
