@@ -65,6 +65,10 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 	public JButton plus = new JButton("+");
 	public JButton equals = new JButton("=");
 	public JButton decimal = new JButton(".");
+	
+    static String pressed = "";
+    
+    public JLabel message = new JLabel("0");
 
 	public GridLayoutDemo(String name) {
 		super(name);
@@ -117,12 +121,16 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 		// sets the colour of buttons
 		button1.setBackground(orange);
 
+        message.setBounds(50,200,170,20);
+		
 		initGaps();
 		final JPanel compsToExperiment = new JPanel();
 		compsToExperiment.setLayout(experimentLayout);
 		JPanel controls = new JPanel();
 		controls.setLayout(new GridLayout(2, 3));
-
+        JPanel screen = new JPanel();
+        screen.setLayout(new GridLayout(2,3));
+		
 		// Set up components preferred size
 		JButton b = new JButton("Just fake button");
 		Dimension buttonSize = b.getPreferredSize();
@@ -155,6 +163,8 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 		controls.add(horGapComboBox);
 		controls.add(verGapComboBox);
 		controls.add(applyButton);
+		
+        screen.add(message);
 
 		// Process the Apply gaps button press
 		applyButton.addActionListener(new ActionListener() {
@@ -171,8 +181,9 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 				experimentLayout.layoutContainer(compsToExperiment);
 			}
 		});
-		pane.add(compsToExperiment, BorderLayout.NORTH);
-		pane.add(new JSeparator(), BorderLayout.CENTER);
+        pane.add(screen, BorderLayout.NORTH);
+		pane.add(compsToExperiment, BorderLayout.CENTER);
+//		pane.add(new JSeparator(), BorderLayout.CENTER);
 		pane.add(controls, BorderLayout.SOUTH);
 	}
 
@@ -219,9 +230,36 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 
 	public void actionPerformed(ActionEvent event) {
 
-		// See if it's our first button that cause the event
-		if (event.getActionCommand().equals("button1")) {
-			button1.setText("KRONK!");
-		}
+        if (event.getActionCommand().equals("button1")) {
+                pressed = (pressed + "1");
+        }
+        if (event.getActionCommand().equals("button2")) {
+                pressed = (pressed + "2");
+        }
+        if (event.getActionCommand().equals("button3")) {
+                pressed = (pressed + "3");
+        }
+        if (event.getActionCommand().equals("button4")) {
+                pressed = (pressed + "4");
+        }
+        if (event.getActionCommand().equals("button5")) {
+                pressed = (pressed + "5");
+        }
+        if (event.getActionCommand().equals("button6")) {
+                pressed = (pressed + "6");
+        }
+        if (event.getActionCommand().equals("button7")) {
+                pressed = (pressed + "7");
+        }
+        if (event.getActionCommand().equals("button8")) {
+                pressed = (pressed + "8");
+        }
+        if (event.getActionCommand().equals("button9")) {
+                pressed = (pressed + "9");
+        }
+        if (event.getActionCommand().equals("button0")) {
+                pressed = (pressed + "0");
+        }
+        message.setText(pressed);
 	}
 }
