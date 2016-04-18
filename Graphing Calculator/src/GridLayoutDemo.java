@@ -41,14 +41,14 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
-public class GridLayoutDemo extends JFrame implements ActionListener{
+public class GridLayoutDemo extends JFrame implements ActionListener {
 	static final String gapList[] = { "0", "10", "15", "20" };
 	final static int maxGap = 20;
 	JComboBox horGapComboBox;
 	JComboBox verGapComboBox;
 	JButton applyButton = new JButton("Apply gaps");
-	GridLayout experimentLayout = new GridLayout(0, 3);
-	
+	GridLayout experimentLayout = new GridLayout(0, 4);
+
 	public JButton button0 = new JButton("0");
 	public JButton button1 = new JButton("1");
 	public JButton button2 = new JButton("2");
@@ -59,6 +59,12 @@ public class GridLayoutDemo extends JFrame implements ActionListener{
 	public JButton button7 = new JButton("7");
 	public JButton button8 = new JButton("8");
 	public JButton button9 = new JButton("9");
+	public JButton multiply = new JButton("×");
+	public JButton divide = new JButton("÷");
+	public JButton minus = new JButton("-");
+	public JButton plus = new JButton("+");
+	public JButton equals = new JButton("=");
+	public JButton decimal = new JButton(".");
 
 	public GridLayoutDemo(String name) {
 		super(name);
@@ -72,8 +78,6 @@ public class GridLayoutDemo extends JFrame implements ActionListener{
 
 	public void addComponentsToPane(final Container pane) {
 
-
-		
 		button0.addActionListener(this);
 		button0.setActionCommand("button0");
 		button1.addActionListener(this);
@@ -94,10 +98,23 @@ public class GridLayoutDemo extends JFrame implements ActionListener{
 		button8.setActionCommand("button8");
 		button9.addActionListener(this);
 		button9.setActionCommand("button9");
-		
+		multiply.addActionListener(this);
+		multiply.setActionCommand("multiply");
+		divide.addActionListener(this);
+		divide.setActionCommand("divide");
+		minus.addActionListener(this);
+		minus.setActionCommand("minus");
+		plus.addActionListener(this);
+		plus.setActionCommand("plus");
+		equals.addActionListener(this);
+		equals.setActionCommand("equals");
+		decimal.addActionListener(this);
+		decimal.setActionCommand("decimal");
 
+		// Sets Colour value to name
 		Color orange = Color.decode("#FF9800");
 
+		// sets the colour of buttons
 		button1.setBackground(orange);
 
 		initGaps();
@@ -110,20 +127,26 @@ public class GridLayoutDemo extends JFrame implements ActionListener{
 		JButton b = new JButton("Just fake button");
 		Dimension buttonSize = b.getPreferredSize();
 		compsToExperiment.setPreferredSize(new Dimension((int) (buttonSize
-				.getWidth() * 2.5)
+				.getWidth())
 				+ maxGap, (int) (buttonSize.getHeight() * 3.5) + maxGap * 2));
 
 		// Add buttons to experiment with Grid Layout
 		compsToExperiment.add(button7);
 		compsToExperiment.add(button8);
 		compsToExperiment.add(button9);
+		compsToExperiment.add(divide);
 		compsToExperiment.add(button4);
 		compsToExperiment.add(button5);
 		compsToExperiment.add(button6);
+		compsToExperiment.add(multiply);
 		compsToExperiment.add(button1);
 		compsToExperiment.add(button2);
 		compsToExperiment.add(button3);
+		compsToExperiment.add(minus);
+		compsToExperiment.add(decimal);
 		compsToExperiment.add(button0);
+		compsToExperiment.add(equals);
+		compsToExperiment.add(plus);
 
 		// Add controls to set up horizontal and vertical gaps
 		controls.add(new Label("Horizontal gap:"));
@@ -193,6 +216,7 @@ public class GridLayoutDemo extends JFrame implements ActionListener{
 			}
 		});
 	}
+
 	public void actionPerformed(ActionEvent event) {
 
 		// See if it's our first button that cause the event
