@@ -67,7 +67,12 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 	public JButton decimal = new JButton(".");
 	
     static String pressed = "";
+    static String digit1 = "";
     static boolean operation = false;
+    static boolean add = false;
+    static boolean subtract = false;
+    static boolean mult = false;
+    static boolean div = false;
     
     public JLabel message = new JLabel("0");
 
@@ -261,17 +266,25 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
         if (event.getActionCommand().equals("button0") && (operation == false)) {
                 pressed = (pressed + "0");
         }
-        if (event.getActionCommand().equals("multiply")) {
-        
+        if (event.getActionCommand().equals("multiply") && (mult == false) && (div == false) && (add == false) && (subtract == false)) {
+        mult = true;
+        digit1 = pressed;
+        pressed = "";
     }
-        if (event.getActionCommand().equals("divide")) {
-        
+        if (event.getActionCommand().equals("divide") && (mult == false) && (div == false) && (add == false) && (subtract == false)) {
+            div = true;
+            digit1 = pressed;
+            pressed = "";
     }
-        if (event.getActionCommand().equals("minus")) {
-        
+        if (event.getActionCommand().equals("minus") && (mult == false) && (div == false) && (add == false) && (subtract == false)) {
+            subtract = true;
+            digit1 = pressed;
+            pressed = "";
     }
-        if (event.getActionCommand().equals("plus")) {
-        
+        if (event.getActionCommand().equals("plus") && (mult == false) && (div == false) && (add == false) && (subtract == false)) {
+            add = true;
+            digit1 = pressed;
+            pressed = "";
     }
         if (event.getActionCommand().equals("equals")) {
             operation = true;
