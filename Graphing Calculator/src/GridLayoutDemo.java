@@ -67,6 +67,7 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 	public JButton decimal = new JButton(".");
 	
     static String pressed = "";
+    static boolean operation = false;
     
     public JLabel message = new JLabel("0");
 
@@ -230,35 +231,50 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 
 	public void actionPerformed(ActionEvent event) {
 
-        if (event.getActionCommand().equals("button1")) {
+        if (event.getActionCommand().equals("button1") && (operation == false)) {
                 pressed = (pressed + "1");
         }
-        if (event.getActionCommand().equals("button2")) {
+        if (event.getActionCommand().equals("button2") && (operation == false)) {
                 pressed = (pressed + "2");
         }
-        if (event.getActionCommand().equals("button3")) {
+        if (event.getActionCommand().equals("button3") && (operation == false)) {
                 pressed = (pressed + "3");
         }
-        if (event.getActionCommand().equals("button4")) {
+        if (event.getActionCommand().equals("button4") && (operation == false)) {
                 pressed = (pressed + "4");
         }
-        if (event.getActionCommand().equals("button5")) {
+        if (event.getActionCommand().equals("button5") && (operation == false)) {
                 pressed = (pressed + "5");
         }
-        if (event.getActionCommand().equals("button6")) {
+        if (event.getActionCommand().equals("button6") && (operation == false)) {
                 pressed = (pressed + "6");
         }
-        if (event.getActionCommand().equals("button7")) {
+        if (event.getActionCommand().equals("button7") && (operation == false)) {
                 pressed = (pressed + "7");
         }
-        if (event.getActionCommand().equals("button8")) {
+        if (event.getActionCommand().equals("button8") && (operation == false)) {
                 pressed = (pressed + "8");
         }
-        if (event.getActionCommand().equals("button9")) {
+        if (event.getActionCommand().equals("button9") && (operation == false)) {
                 pressed = (pressed + "9");
         }
-        if (event.getActionCommand().equals("button0")) {
+        if (event.getActionCommand().equals("button0") && (operation == false)) {
                 pressed = (pressed + "0");
+        }
+        if (event.getActionCommand().equals("multiply")) {
+        
+    }
+        if (event.getActionCommand().equals("divide")) {
+        
+    }
+        if (event.getActionCommand().equals("minus")) {
+        
+    }
+        if (event.getActionCommand().equals("plus")) {
+        
+    }
+        if (event.getActionCommand().equals("equals")) {
+            operation = true;
         }
         message.setText(pressed);
 	}
