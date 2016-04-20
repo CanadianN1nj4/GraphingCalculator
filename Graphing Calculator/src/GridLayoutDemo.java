@@ -67,7 +67,9 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 	public JButton decimal = new JButton(".");
 	
     static String pressed = "";
-    static String digit1 = "";
+    static double digit1 = 0;
+    static double digit2 = 0;
+    static double ansdigit = 0;
     static boolean operation = false;
     static boolean add = false;
     static boolean subtract = false;
@@ -268,26 +270,39 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
         }
         if (event.getActionCommand().equals("multiply") && (mult == false) && (div == false) && (add == false) && (subtract == false)) {
         mult = true;
-        digit1 = pressed;
+        digit1 = Double.parseDouble(pressed);
         pressed = "";
     }
         if (event.getActionCommand().equals("divide") && (mult == false) && (div == false) && (add == false) && (subtract == false)) {
             div = true;
-            digit1 = pressed;
+            digit1 = Double.parseDouble(pressed);
             pressed = "";
     }
         if (event.getActionCommand().equals("minus") && (mult == false) && (div == false) && (add == false) && (subtract == false)) {
             subtract = true;
-            digit1 = pressed;
+            digit1 = Double.parseDouble(pressed);
             pressed = "";
     }
         if (event.getActionCommand().equals("plus") && (mult == false) && (div == false) && (add == false) && (subtract == false)) {
             add = true;
-            digit1 = pressed;
+            digit1 = Double.parseDouble(pressed);
             pressed = "";
     }
         if (event.getActionCommand().equals("equals")) {
             operation = true;
+            digit2 = Double.parseDouble(pressed);
+            if (add == true){
+            	ansdigit = ScientificCalculations.evaluate("add",digit1,digit2);
+            }
+            if (subtract == true){
+            	ansdigit = ScientificCalculations.evaluate("subtract",digit1,digit2);
+            }
+            if (mult == true){
+            	ansdigit = ScientificCalculations.evaluate("multiply",digit1,digit2);
+            }
+            if (div == true){
+            	ansdigit = ScientificCalculations.evaluate("divide",digit1,digit2);
+            }
         }
         message.setText(pressed);
 	}
