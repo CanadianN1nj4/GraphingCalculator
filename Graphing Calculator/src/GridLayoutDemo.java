@@ -73,13 +73,13 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 	public JButton ln = new JButton("ln");
 	public JButton log = new JButton("log");
 	public JButton power = new JButton("^");
-	public JButton sqrt = new JButton("SquareRoot");
-	public JButton InSin = new JButton("InverseSin");
-	public JButton InCos = new JButton("InverseCos");
-	public JButton InTan = new JButton("InTan");
-	public JButton TentoTheX = new JButton("TenToTheX");
-	public JButton eToTheX = new JButton("eToTheX");
-	public JButton squared = new JButton("squared");
+	public JButton sqrt = new JButton("sqrt");
+	public JButton InSin = new JButton("ArcSin");
+	public JButton InCos = new JButton("ArcCos");
+	public JButton InTan = new JButton("ArcTan");
+	public JButton TentoTheX = new JButton("10^x");
+	public JButton eToTheX = new JButton("e^x");
+	public JButton squared = new JButton("^2");
 
 	static String pressed = "";
 	static double digit1 = 0;
@@ -151,6 +151,8 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 		compsToExperiment.setLayout(experimentLayout);
 		JPanel controls = new JPanel();
 		controls.setLayout(new GridLayout(2, 3));
+		JPanel science = new JPanel();
+		science.setLayout(scienceLayout);
 		JPanel screen = new JPanel();
 		screen.setLayout(new GridLayout(2, 3));
 
@@ -187,6 +189,11 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 		controls.add(verGapComboBox);
 		controls.add(applyButton);
 
+		// adds science
+		science.add(sqrt);
+		science.add(sin);
+		science.add(cos);
+
 		screen.add(message);
 
 		// Process the Apply gaps button press
@@ -208,6 +215,7 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 		pane.add(compsToExperiment, BorderLayout.CENTER);
 		// pane.add(new JSeparator(), BorderLayout.CENTER);
 		pane.add(controls, BorderLayout.SOUTH);
+		pane.add(science, BorderLayout.EAST);
 	}
 
 	/**
