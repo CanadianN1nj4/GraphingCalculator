@@ -48,6 +48,7 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 	JComboBox verGapComboBox;
 	JButton applyButton = new JButton("Apply gaps");
 	GridLayout experimentLayout = new GridLayout(0, 4);
+	GridLayout scienceLayout = new GridLayout(0, 4);
 
 	public JButton button0 = new JButton("0");
 	public JButton button1 = new JButton("1");
@@ -65,18 +66,32 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 	public JButton plus = new JButton("+");
 	public JButton equals = new JButton("=");
 	public JButton decimal = new JButton(".");
-	
-    static String pressed = "";
-    static double digit1 = 0;
-    static double digit2 = 0;
-    static double ansdigit = 0;
-    static boolean operation = false;
-    static boolean add = false;
-    static boolean subtract = false;
-    static boolean mult = false;
-    static boolean div = false;
-    
-    public JLabel message = new JLabel("0");
+
+	public JButton sin = new JButton("sine");
+	public JButton cos = new JButton("cosine");
+	public JButton tan = new JButton("tangent");
+	public JButton ln = new JButton("ln");
+	public JButton log = new JButton("log");
+	public JButton power = new JButton("^");
+	public JButton sqrt = new JButton("SquareRoot");
+	public JButton InSin = new JButton("InverseSin");
+	public JButton InCos = new JButton("InverseCos");
+	public JButton InTan = new JButton("InTan");
+	public JButton TentoTheX = new JButton("TenToTheX");
+	public JButton eToTheX = new JButton("eToTheX");
+	public JButton squared = new JButton("squared");
+
+	static String pressed = "";
+	static double digit1 = 0;
+	static double digit2 = 0;
+	static double ansdigit = 0;
+	static boolean operation = false;
+	static boolean add = false;
+	static boolean subtract = false;
+	static boolean mult = false;
+	static boolean div = false;
+
+	public JLabel message = new JLabel("0");
 
 	public GridLayoutDemo(String name) {
 		super(name);
@@ -129,16 +144,16 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 		// sets the colour of buttons
 		button1.setBackground(orange);
 
-        message.setBounds(50,200,170,20);
-		
+		message.setBounds(50, 200, 170, 20);
+
 		initGaps();
 		final JPanel compsToExperiment = new JPanel();
 		compsToExperiment.setLayout(experimentLayout);
 		JPanel controls = new JPanel();
 		controls.setLayout(new GridLayout(2, 3));
-        JPanel screen = new JPanel();
-        screen.setLayout(new GridLayout(2,3));
-		
+		JPanel screen = new JPanel();
+		screen.setLayout(new GridLayout(2, 3));
+
 		// Set up components preferred size
 		JButton b = new JButton("Just fake button");
 		Dimension buttonSize = b.getPreferredSize();
@@ -171,8 +186,8 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 		controls.add(horGapComboBox);
 		controls.add(verGapComboBox);
 		controls.add(applyButton);
-		
-        screen.add(message);
+
+		screen.add(message);
 
 		// Process the Apply gaps button press
 		applyButton.addActionListener(new ActionListener() {
@@ -189,9 +204,9 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 				experimentLayout.layoutContainer(compsToExperiment);
 			}
 		});
-        pane.add(screen, BorderLayout.NORTH);
+		pane.add(screen, BorderLayout.NORTH);
 		pane.add(compsToExperiment, BorderLayout.CENTER);
-//		pane.add(new JSeparator(), BorderLayout.CENTER);
+		// pane.add(new JSeparator(), BorderLayout.CENTER);
 		pane.add(controls, BorderLayout.SOUTH);
 	}
 
@@ -238,72 +253,80 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 
 	public void actionPerformed(ActionEvent event) {
 
-        if (event.getActionCommand().equals("button1") && (operation == false)) {
-                pressed = (pressed + "1");
-        }
-        if (event.getActionCommand().equals("button2") && (operation == false)) {
-                pressed = (pressed + "2");
-        }
-        if (event.getActionCommand().equals("button3") && (operation == false)) {
-                pressed = (pressed + "3");
-        }
-        if (event.getActionCommand().equals("button4") && (operation == false)) {
-                pressed = (pressed + "4");
-        }
-        if (event.getActionCommand().equals("button5") && (operation == false)) {
-                pressed = (pressed + "5");
-        }
-        if (event.getActionCommand().equals("button6") && (operation == false)) {
-                pressed = (pressed + "6");
-        }
-        if (event.getActionCommand().equals("button7") && (operation == false)) {
-                pressed = (pressed + "7");
-        }
-        if (event.getActionCommand().equals("button8") && (operation == false)) {
-                pressed = (pressed + "8");
-        }
-        if (event.getActionCommand().equals("button9") && (operation == false)) {
-                pressed = (pressed + "9");
-        }
-        if (event.getActionCommand().equals("button0") && (operation == false)) {
-                pressed = (pressed + "0");
-        }
-        if (event.getActionCommand().equals("multiply") && (mult == false) && (div == false) && (add == false) && (subtract == false)) {
-        mult = true;
-        digit1 = Double.parseDouble(pressed);
-        pressed = "";
-    }
-        if (event.getActionCommand().equals("divide") && (mult == false) && (div == false) && (add == false) && (subtract == false)) {
-            div = true;
-            digit1 = Double.parseDouble(pressed);
-            pressed = "";
-    }
-        if (event.getActionCommand().equals("minus") && (mult == false) && (div == false) && (add == false) && (subtract == false)) {
-            subtract = true;
-            digit1 = Double.parseDouble(pressed);
-            pressed = "";
-    }
-        if (event.getActionCommand().equals("plus") && (mult == false) && (div == false) && (add == false) && (subtract == false)) {
-            add = true;
-            digit1 = Double.parseDouble(pressed);
-            pressed = "";
-    }
-        if (event.getActionCommand().equals("equals")) {
-            operation = true;
-            digit2 = Double.parseDouble(pressed);
-            if (add == true){
-            	ansdigit = ScientificCalculations.evaluate("add",digit1,digit2);
-            }
-            if (subtract == true){
-            	ansdigit = ScientificCalculations.evaluate("subtract",digit1,digit2);
-            }
-            if (mult == true){
-            	ansdigit = ScientificCalculations.evaluate("multiply",digit1,digit2);
-            }
-            if (div == true){
-            	ansdigit = ScientificCalculations.evaluate("divide",digit1,digit2);
-            }
-        }
-        message.setText(pressed);
+		if (event.getActionCommand().equals("button1") && (operation == false)) {
+			pressed = (pressed + "1");
+		}
+		if (event.getActionCommand().equals("button2") && (operation == false)) {
+			pressed = (pressed + "2");
+		}
+		if (event.getActionCommand().equals("button3") && (operation == false)) {
+			pressed = (pressed + "3");
+		}
+		if (event.getActionCommand().equals("button4") && (operation == false)) {
+			pressed = (pressed + "4");
+		}
+		if (event.getActionCommand().equals("button5") && (operation == false)) {
+			pressed = (pressed + "5");
+		}
+		if (event.getActionCommand().equals("button6") && (operation == false)) {
+			pressed = (pressed + "6");
+		}
+		if (event.getActionCommand().equals("button7") && (operation == false)) {
+			pressed = (pressed + "7");
+		}
+		if (event.getActionCommand().equals("button8") && (operation == false)) {
+			pressed = (pressed + "8");
+		}
+		if (event.getActionCommand().equals("button9") && (operation == false)) {
+			pressed = (pressed + "9");
+		}
+		if (event.getActionCommand().equals("button0") && (operation == false)) {
+			pressed = (pressed + "0");
+		}
+		if (event.getActionCommand().equals("multiply") && (mult == false)
+				&& (div == false) && (add == false) && (subtract == false)) {
+			mult = true;
+			digit1 = Double.parseDouble(pressed);
+			pressed = "";
+		}
+		if (event.getActionCommand().equals("divide") && (mult == false)
+				&& (div == false) && (add == false) && (subtract == false)) {
+			div = true;
+			digit1 = Double.parseDouble(pressed);
+			pressed = "";
+		}
+		if (event.getActionCommand().equals("minus") && (mult == false)
+				&& (div == false) && (add == false) && (subtract == false)) {
+			subtract = true;
+			digit1 = Double.parseDouble(pressed);
+			pressed = "";
+		}
+		if (event.getActionCommand().equals("plus") && (mult == false)
+				&& (div == false) && (add == false) && (subtract == false)) {
+			add = true;
+			digit1 = Double.parseDouble(pressed);
+			pressed = "";
+		}
+		if (event.getActionCommand().equals("equals")) {
+			operation = true;
+			digit2 = Double.parseDouble(pressed);
+			if (add == true) {
+				ansdigit = ScientificCalculations.evaluate("add", digit1,
+						digit2);
+			}
+			if (subtract == true) {
+				ansdigit = ScientificCalculations.evaluate("subtract", digit1,
+						digit2);
+			}
+			if (mult == true) {
+				ansdigit = ScientificCalculations.evaluate("multiply", digit1,
+						digit2);
+			}
+			if (div == true) {
+				ansdigit = ScientificCalculations.evaluate("divide", digit1,
+						digit2);
+			}
+		}
+		message.setText(pressed);
 	}
 }
