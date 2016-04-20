@@ -48,7 +48,7 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 	JComboBox verGapComboBox;
 	JButton applyButton = new JButton("Apply gaps");
 	GridLayout experimentLayout = new GridLayout(0, 4);
-	GridLayout scienceLayout = new GridLayout(0, 4);
+	GridLayout scienceLayout = new GridLayout(0, 2);
 
 	public JButton button0 = new JButton("0");
 	public JButton button1 = new JButton("1");
@@ -193,6 +193,10 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 		science.add(sqrt);
 		science.add(sin);
 		science.add(cos);
+		science.add(tan);
+		science.add(ln);
+		science.add(log);
+		
 
 		screen.add(message);
 
@@ -230,6 +234,7 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 		frame.addComponentsToPane(frame.getContentPane());
 		// Display the window.
 		frame.pack();
+		frame.setSize(400, 300);
 		frame.setVisible(true);
 	}
 
