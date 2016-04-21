@@ -48,7 +48,7 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 	JComboBox verGapComboBox;
 	JButton applyButton = new JButton("Apply gaps");
 	GridLayout experimentLayout = new GridLayout(0, 4);
-	GridLayout scienceLayout = new GridLayout(0, 2);
+	GridLayout scienceLayout = new GridLayout(0, 5);
 
 	public JButton button0 = new JButton("0");
 	public JButton button1 = new JButton("1");
@@ -80,6 +80,8 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 	public JButton TenToTheX = new JButton("10^x");
 	public JButton eToTheX = new JButton("e^x");
 	public JButton squared = new JButton("^2");
+	
+	public JButton Graphing = new JButton("Graping Calculator");
 
 	static String pressed = "";
 	static double digit1 = 0;
@@ -142,6 +144,7 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 		Color orange = Color.decode("#FDD835");
 		Color blue = Color.decode("#80D8FF");
 		Color pink = Color.decode("#FF80AB");
+		Color green = Color.decode("#00FF00");
 
 		// sets the colour of buttons
 		button1.setBackground(orange);
@@ -173,7 +176,10 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 		TenToTheX.setBackground(pink);
 		eToTheX.setBackground(pink);
 		squared.setBackground(pink);
+		Graphing.setBackground(green);
 
+		
+		
 		message.setBounds(50, 200, 170, 20);
 
 		initGaps();
@@ -185,6 +191,7 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 		science.setLayout(scienceLayout);
 		JPanel screen = new JPanel();
 		screen.setLayout(new GridLayout(2, 3));
+		
 
 		// Set up components preferred size
 		JButton b = new JButton("Just fake button");
@@ -234,6 +241,7 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 		science.add(TenToTheX);
 		science.add(eToTheX);
 		science.add(squared);
+		science.add(Graphing);
 
 		screen.add(message);
 
@@ -253,10 +261,10 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 			}
 		});
 		pane.add(screen, BorderLayout.NORTH);
-		pane.add(compsToExperiment, BorderLayout.CENTER);
+		pane.add(compsToExperiment, BorderLayout.SOUTH);
 		// pane.add(new JSeparator(), BorderLayout.CENTER);
-		pane.add(controls, BorderLayout.SOUTH);
-		pane.add(science, BorderLayout.EAST);
+		//pane.add(controls, BorderLayout.SOUTH);
+		pane.add(science, BorderLayout.CENTER);
 	}
 
 	/**
