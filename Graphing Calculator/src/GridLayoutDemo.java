@@ -139,10 +139,26 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 		decimal.setActionCommand("decimal");
 
 		// Sets Colour value to name
-		Color orange = Color.decode("#FF9800");
+		Color orange = Color.decode("#FDD835");
+		Color blue = Color.decode("#80D8FF");
 
 		// sets the colour of buttons
 		button1.setBackground(orange);
+		button2.setBackground(orange);
+		button3.setBackground(orange);
+		button4.setBackground(orange);
+		button5.setBackground(orange);
+		button6.setBackground(orange);
+		button7.setBackground(orange);
+		button8.setBackground(orange);
+		button9.setBackground(orange);
+		button0.setBackground(orange);
+		equals.setBackground(blue);
+		multiply.setBackground(blue);
+		divide.setBackground(blue);
+		minus.setBackground(blue);
+		plus.setBackground(blue);
+		decimal.setBackground(blue);
 
 		message.setBounds(50, 200, 170, 20);
 
