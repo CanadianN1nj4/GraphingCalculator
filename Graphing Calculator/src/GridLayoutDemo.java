@@ -141,6 +141,7 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 		// Sets Colour value to name
 		Color orange = Color.decode("#FDD835");
 		Color blue = Color.decode("#80D8FF");
+		Color pink = Color.decode("#FF80AB");
 
 		// sets the colour of buttons
 		button1.setBackground(orange);
@@ -159,6 +160,19 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 		minus.setBackground(blue);
 		plus.setBackground(blue);
 		decimal.setBackground(blue);
+		sin.setBackground(pink);
+		cos.setBackground(pink);
+		tan.setBackground(pink);
+		ln.setBackground(pink);
+		log.setBackground(pink);
+		power.setBackground(pink);
+		sqrt.setBackground(pink);
+		InSin.setBackground(pink);
+		InCos.setBackground(pink);
+		InTan.setBackground(pink);
+		TenToTheX.setBackground(pink);
+		eToTheX.setBackground(pink);
+		squared.setBackground(pink);
 
 		message.setBounds(50, 200, 170, 20);
 
@@ -251,7 +265,7 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 	 */
 	private static void createAndShowGUI() {
 		// Create and set up the window.
-		GridLayoutDemo frame = new GridLayoutDemo("GridLayoutDemo");
+		GridLayoutDemo frame = new GridLayoutDemo("Babies First Calculator");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// Set up the content pane.
 		frame.addComponentsToPane(frame.getContentPane());
