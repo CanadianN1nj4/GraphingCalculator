@@ -266,62 +266,63 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 
 	public void actionPerformed(ActionEvent event) {
 
-		if (event.getActionCommand().equals("button1") && (operation == false)) {
+		if (event.getActionCommand().equals("button1")) {
 			pressed = (pressed + "1");
 		}
-		if (event.getActionCommand().equals("button2") && (operation == false)) {
+		if (event.getActionCommand().equals("button2")) {
 			pressed = (pressed + "2");
 		}
-		if (event.getActionCommand().equals("button3") && (operation == false)) {
+		if (event.getActionCommand().equals("button3")) {
 			pressed = (pressed + "3");
 		}
-		if (event.getActionCommand().equals("button4") && (operation == false)) {
+		if (event.getActionCommand().equals("button4")) {
 			pressed = (pressed + "4");
 		}
-		if (event.getActionCommand().equals("button5") && (operation == false)) {
+		if (event.getActionCommand().equals("button5")) {
 			pressed = (pressed + "5");
 		}
-		if (event.getActionCommand().equals("button6") && (operation == false)) {
+		if (event.getActionCommand().equals("button6")) {
 			pressed = (pressed + "6");
 		}
-		if (event.getActionCommand().equals("button7") && (operation == false)) {
+		if (event.getActionCommand().equals("button7")) {
 			pressed = (pressed + "7");
 		}
-		if (event.getActionCommand().equals("button8") && (operation == false)) {
+		if (event.getActionCommand().equals("button8")) {
 			pressed = (pressed + "8");
 		}
-		if (event.getActionCommand().equals("button9") && (operation == false)) {
+		if (event.getActionCommand().equals("button9")) {
 			pressed = (pressed + "9");
 		}
-		if (event.getActionCommand().equals("button0") && (operation == false)) {
+		if (event.getActionCommand().equals("button0")) {
 			pressed = (pressed + "0");
 		}
-		if (event.getActionCommand().equals("multiply") && (mult == false)
-				&& (div == false) && (add == false) && (subtract == false)) {
+		if (event.getActionCommand().equals("multiply") && (operation == false)) {
 			mult = true;
-			digit1 = Double.parseDouble(pressed);
-			pressed = "";
-		}
-		if (event.getActionCommand().equals("divide") && (mult == false)
-				&& (div == false) && (add == false) && (subtract == false)) {
-			div = true;
-			digit1 = Double.parseDouble(pressed);
-			pressed = "";
-		}
-		if (event.getActionCommand().equals("minus") && (mult == false)
-				&& (div == false) && (add == false) && (subtract == false)) {
-			subtract = true;
-			digit1 = Double.parseDouble(pressed);
-			pressed = "";
-		}
-		if (event.getActionCommand().equals("plus") && (mult == false)
-				&& (div == false) && (add == false) && (subtract == false)) {
-			add = true;
-			digit1 = Double.parseDouble(pressed);
-			pressed = "";
-		}
-		if (event.getActionCommand().equals("equals")) {
 			operation = true;
+			digit1 = Double.parseDouble(pressed);
+			pressed = "";
+		}
+		if (event.getActionCommand().equals("divide") && (operation == false)) {
+			div = true;
+			operation = true;
+			digit1 = Double.parseDouble(pressed);
+			pressed = "";
+		}
+		if (event.getActionCommand().equals("minus") && (operation == false)) {
+			subtract = true;
+			operation = true;
+			digit1 = Double.parseDouble(pressed);
+			pressed = "";
+		}
+		if (event.getActionCommand().equals("plus") && (operation == false)) {
+			add = true;
+			operation = true;
+			digit1 = Double.parseDouble(pressed);
+			pressed = "";
+		}
+		
+		//Perform it all
+		if (event.getActionCommand().equals("equals")) {
 			digit2 = Double.parseDouble(pressed);
 			if (add == true) {
 				ansdigit = ScientificCalculations.evaluate("add", digit1,
