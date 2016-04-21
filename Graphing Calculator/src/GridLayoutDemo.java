@@ -77,7 +77,7 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 	public JButton InSin = new JButton("ArcSin");
 	public JButton InCos = new JButton("ArcCos");
 	public JButton InTan = new JButton("ArcTan");
-	public JButton TentoTheX = new JButton("10^x");
+	public JButton TenToTheX = new JButton("10^x");
 	public JButton eToTheX = new JButton("e^x");
 	public JButton squared = new JButton("^2");
 
@@ -190,13 +190,20 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 		controls.add(applyButton);
 
 		// adds science
-		science.add(sqrt);
+
 		science.add(sin);
 		science.add(cos);
 		science.add(tan);
 		science.add(ln);
 		science.add(log);
-		
+		science.add(power);
+		science.add(sqrt);
+		science.add(InSin);
+		science.add(InCos);
+		science.add(InTan);
+		science.add(TenToTheX);
+		science.add(eToTheX);
+		science.add(squared);
 
 		screen.add(message);
 
@@ -320,8 +327,8 @@ public class GridLayoutDemo extends JFrame implements ActionListener {
 			digit1 = Double.parseDouble(pressed);
 			pressed = "";
 		}
-		
-		//Perform it all
+
+		// Perform it all
 		if (event.getActionCommand().equals("equals")) {
 			digit2 = Double.parseDouble(pressed);
 			if (add == true) {
