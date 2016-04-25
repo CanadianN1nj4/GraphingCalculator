@@ -2,7 +2,7 @@
 public class ScientificCalculations
 {
 
-	public static double evalaute(String operationType, double par1,
+	public static double evaluate(String operationType, double par1,
 			double par2)
 	{
 
